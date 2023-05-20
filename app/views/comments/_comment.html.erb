@@ -1,0 +1,12 @@
+<%= turbo_stream_from comment %>
+<%= turbo_frame_tag comment do %>
+  <div>
+    <div><%= comment.user.email %></div>
+    <div>
+      <%= link_to "Edit", edit_comment_path(comment) %>
+      <%= button_to "Delete", comment_path(comment), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+  </div>
+
+  <%= comment.body %>
+<% end %>
